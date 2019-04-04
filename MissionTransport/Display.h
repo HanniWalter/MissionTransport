@@ -1,10 +1,12 @@
 #pragma once
+#define SDL_MAIN_HANDLED
 #include <stdio.h>
 #include "World.h"
 #include "SDL2_gfxPrimitives.h" 
 #include <iostream>
+
 #include <SDL.h>
-#include <SDL_image.h>
+//#include <SDL_image.h>
 #include "GameObject.h"
 #include "World.h"
 #include <vector>
