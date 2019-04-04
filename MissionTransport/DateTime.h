@@ -36,5 +36,13 @@ public:
 	unsigned int addmm(unsigned int minute_);
 	unsigned int addss(unsigned int second_);
 	unsigned int addms(unsigned int millisecond_);
+
+
+	bool operator==(DateTime d);
+	bool operator<=(DateTime d);
+	bool operator>=(DateTime d);
+	bool operator<(DateTime d);
+	bool operator>(DateTime d);
+	bool operator!=(DateTime d);
 };
 
