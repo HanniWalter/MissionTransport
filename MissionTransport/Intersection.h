@@ -19,6 +19,7 @@ public:
 	Intersection(int X, int Y, std::string pic);
 	Intersection(int X, int Y);
 	~Intersection();
+	void printIntersection();
 	std::vector<Track*> getTracks();
 	void addTrack(Track* t);
 	void remove(Track* t);

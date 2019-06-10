@@ -57,6 +57,9 @@
     <ClCompile Include="Line.cpp">
       <Filter>Quelldateien</Filter>
     </ClCompile>
+    <ClCompile Include="Util.cpp">
+      <Filter>Quelldateien</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="World.h">
@@ -84,6 +87,12 @@
       <Filter>Headerdateien</Filter>
     </ClInclude>
     <ClInclude Include="Line.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="Globals.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="Util.h">
       <Filter>Headerdateien</Filter>
     </ClInclude>
   </ItemGroup>

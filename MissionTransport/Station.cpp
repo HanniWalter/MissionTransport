@@ -21,3 +21,8 @@ Station::Station(int X, int Y)
 Station::~Station()
 {
 }
+
+void Station::printStation()
+{
+	printIntersection();
+}

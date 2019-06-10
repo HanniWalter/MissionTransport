@@ -1,6 +1,6 @@
 #include "Intersection.h"
 #include "track.h"
-
+#include "Util.h"
 
 Intersection::Intersection()
 {
@@ -19,6 +19,19 @@ Intersection::Intersection(int X, int Y)
 
 Intersection::~Intersection()
 {
+}
+
+void Intersection::printIntersection()
+{
+	printGameObject();
+	print("ptr of tracks: ");
+	for (int i = 0; i < tracks.size(); i++) {
+		print(i);
+		print(": ");
+		print((int) tracks.at(i));
+		print("	  ");
+	}
+	println("");
 }
 
 std::vector<Track*> Intersection::getTracks()

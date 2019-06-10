@@ -1,14 +1,15 @@
 #include "Display.h"
+#include "GameObject.h"
 
 int Display::paintObjects()
 {
-	for (int i = 0; i < world->getTracks().size(); i++)
+	for (int i = 0; i < GlobalWorld->getTracks().size(); i++)
 	{
-		paintTrack(world->getTracks().at(i));
+		paintTrack(GlobalWorld->getTracks().at(i));
 	}
-	for (int i = 0; i < world->getIntersections().size(); i++)
+	for (int i = 0; i < GlobalWorld->getIntersections().size(); i++)
 	{
-		paintObject(world->getIntersections().at(i));
+		paintObject(GlobalWorld->getIntersections().at(i));
 	}
 	return 0;
 }
@@ -63,20 +64,18 @@ int Display::init()
 
 Display::Display()
 {
-}
-
-Display::Display(World* world)
-{
-	this->world = world;
 	try
 	{
 		init();
+		extern bool GSDisplayLoadet;
+		GSDisplayLoadet = true;
 	}
 	catch (std::string ex)
 	{
 		std::cout << ex;
 	}
 }
+
 
 Display::~Display()
 {

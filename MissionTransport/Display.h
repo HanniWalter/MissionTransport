@@ -12,6 +12,7 @@
 #include <vector>
 #include "Track.h"
 
+extern World* GlobalWorld;
 class Display
 {
 private:
@@ -28,7 +29,7 @@ private:
 	int init();
 public:
 	Display();
-	Display(World* world);
+	//Display(World* world);
 	~Display();
 	int render();
 };

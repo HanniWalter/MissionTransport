@@ -23,6 +23,16 @@ GameObject::~GameObject()
 {
 }
 
+void GameObject::printGameObject()
+{
+	print("ptr: ");
+	print((int) this);
+	print("		X: ");
+	print(this->X);
+	print("		Y: ");
+	println(this->Y);
+}
+
 std::string GameObject::getpicture()
 {
 	return this->pic;

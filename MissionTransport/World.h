@@ -8,6 +8,7 @@
 #include "GameObject.h"
 #include "Track.h"
 
+
 class World
 {
 private:
@@ -24,6 +25,7 @@ public:
 	World();
 	World(int Pre);
 	~World();
+	int worldprint();
 	int update(int ticktime);
 	std::vector<Station> getStations();
 	std::vector<Intersection> getIntersections();
@@ -35,6 +37,6 @@ public:
 	int addTrack(Track t);
 	int addTrack(std::vector<std::vector<int>>);
 	int addTrack(Intersection i1, std::vector<std::vector<int>> points, Intersection i2);
-	int addTrack(std::vector<std::vector<int>> points, Intersection i1, Intersection i2);
+//	int addTrack(std::vector<std::vector<int>> points, Intersection i1, Intersection i2);
 
 };

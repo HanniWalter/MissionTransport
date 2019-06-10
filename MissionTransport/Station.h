@@ -8,4 +8,5 @@ public:
 	Station(int X, int Y, std::string pic);
 	Station(int X, int Y);
 	~Station();
+	void printStation();
 };

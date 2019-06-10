@@ -1,9 +1,9 @@
 #include "World.h"		
 
-
 World::World()
 {
-
+	extern bool GSWorldLoadet;
+	GSWorldLoadet = true;
 }
 
 World::World(int Pre)
@@ -24,6 +24,15 @@ World::World(int Pre)
 World::~World()
 {
 }
+
+int World::worldprint()
+{
+	std::cout << MaxX << ";" << MaxY << "         " << dateTime.getDateTime() << std::endl;
+	std::cout << "Stations: "<< stations.size() << std::endl;
+	std::cout << "Intersections: "<< intersections.size() << std::endl;
+	std::cout << "Tracks: "<< tracks.size() << std::endl;
+	return 0;
+} 
 
 int World::update(int ticktime)
 {

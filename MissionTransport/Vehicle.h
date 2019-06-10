@@ -1,5 +1,4 @@
 #pragma once;
-#include "Main.cpp"
 
 class Line;
 class Intersection;
