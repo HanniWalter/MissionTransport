@@ -8,47 +8,57 @@
 #include "Util.h"
 
 
+void initGlobalProduktion() {
+	GlobalProduction = { Production(1), Production(2) };
+}
 
-int main(int iHate, char* SDL[]) {
+/*
+
+int programfunction() {
 	//Messy Part
-	GSDisplayMode = 1;
+	//GSDisplayMode = 1;
 	GSTicking = true;
 	GSRunning = true;
 	World w(1);
 	GlobalWorld = &w;
 
+	/*
 	if (GSDisplayMode == 2) {
 		Display d;
 		GlobalDisplay = &d;
 	}
-	//Event handler for GameEvennts not implemtented mabey later if needed
+	*
+
+	//Event handler for GameEvennts not implemtented maybe later if needed
 
 
 	if (GSDisplayMode == 1) {
-		while (GSRunning == true)
+		while (GSRunning)
 		{
 			std::string command = inputString("Insert command");
 			if (command == "stop") {
 				break;
 				GSRunning == false;
 			}
-			else if(command == "worldstate"){
+			else if (command == "worldstate") {
 				GlobalWorld->worldprint();
 			}
 			else if (command == "print") {
 				std::string command2 = inputString("Insert List");
 				if (command2 == "station") {
-					for (int i = 0;i<GlobalWorld->getStations().size();i++) {
+					for (int i = 0; i < GlobalWorld->getStations().size(); i++) {
 						print(i);
 						GlobalWorld->getStations().at(i).printStation();
-					
+
 					}
-				}else if (command2 == "intersection") {
+				}
+				else if (command2 == "intersection") {
 					for (int i = 0; i < GlobalWorld->getStations().size(); i++) {
 						print(i);
 						GlobalWorld->getStations().at(i).printIntersection();
 					}
-				}else if (command2 == "track") {
+				}
+				else if (command2 == "track") {
 					for (int i = 0; i < GlobalWorld->getStations().size(); i++) {
 
 					}
@@ -57,7 +67,7 @@ int main(int iHate, char* SDL[]) {
 			else if (command == "add") {
 				std::string command2 = inputString("Object");
 				if (command2 == "station") {
-					GlobalWorld->addStation(inputInt("Input X"),inputInt("Input Y"));
+					GlobalWorld->addStation(inputInt("Input X"), inputInt("Input Y"));
 				}
 				else if (command2 == "intersection") {
 					GlobalWorld->addIntersection(inputInt("Input X"), inputInt("Input Y"));
@@ -68,7 +78,7 @@ int main(int iHate, char* SDL[]) {
 					int int2 = inputInt("Intersection B");
 					std::vector<std::vector<int>> list = std::vector<std::vector<int>>();
 					for (int i = 0; i < points; i++) {
-						list.push_back({inputInt("X?"),inputInt("Y?")});
+						list.push_back({ inputInt("X?"),inputInt("Y?") });
 					}
 					GlobalWorld->addTrack(GlobalWorld->getIntersections().at(int1), list, GlobalWorld->getIntersections().at(int2));
 				}
@@ -83,7 +93,7 @@ int main(int iHate, char* SDL[]) {
 		//refferenzzeit möglichst nah an der Gameloop
 		std::chrono::high_resolution_clock::time_point Oldtime = std::chrono::high_resolution_clock::now();
 		// gameloop
-		while(GSRunning) {
+		while (GSRunning) {
 			//Tick
 			std::chrono::high_resolution_clock::duration ticktime = std::chrono::high_resolution_clock::now() - Oldtime;
 			unsigned int tick = std::chrono::duration_cast<std::chrono::microseconds>(ticktime).count();
@@ -96,7 +106,61 @@ int main(int iHate, char* SDL[]) {
 			GlobalDisplay->render();
 		}
 	}
-	
 
 	return 42;
+}
+
+*/
+#include "Stock.h"
+#include "Enums.h"
+#include "Fabric.h"
+#include "Production.h"
+#include "console.h"
+#include <Windows.h>
+#include "EventHandler.h"
+
+
+void GameLoop() {
+	while(true){
+		EventHandler* eventHandler = EventHandler::getInstancePtr();
+		eventHandler->HandleEventStack();
+		Display::getInstancePtr()->render();
+	}
+}
+
+int main(int iHate, char* SDL[]) {
+	std::shared_ptr<Console> console = Console::getInstancePtr();
+	console->activateSeperatedConsole();
+	for (int i = 0; i < 40; i++) {
+		std::string a = "test";
+		a += std::to_string(i);
+		console->print(a);
+	}
+	static std::shared_ptr <Display> display = Display::getInstancePtr();
+	std::optional<World> world = World::getInstance();
+	GameLoop();
+	
+
+	/*
+	//	Stock a = Stock::fabricStock(42);
+//	Stock b = Stock::fabricStock(42);
+	initGlobalProduktion();
+	Fabric f = Fabric(10, 10, 42, 42, { {1} });
+	f.printFabric();
+	f.load(20, Coal);
+	f.update(6);
+	f.update(6);
+	f.update(6);
+	f.update(6);
+	f.printFabric();
+
+//	a.printStock();
+//	b.printStock();
+
+
+
+//	a.printStock();
+//	b.printStock();
+
+**/
 }

@@ -1,9 +1,10 @@
 #include "World.h"		
 
+
+std::optional<std::shared_ptr<World>> World::instance = {};
+
 World::World()
 {
-	extern bool GSWorldLoadet;
-	GSWorldLoadet = true;
 }
 
 World::World(int Pre)
@@ -25,12 +26,19 @@ World::~World()
 {
 }
 
+std::optional<std::shared_ptr<World>> World::getInstance()
+{
+	return World::instance;
+}
+
+
 int World::worldprint()
 {
 	std::cout << MaxX << ";" << MaxY << "         " << dateTime.getDateTime() << std::endl;
 	std::cout << "Stations: "<< stations.size() << std::endl;
 	std::cout << "Intersections: "<< intersections.size() << std::endl;
 	std::cout << "Tracks: "<< tracks.size() << std::endl;
+	std::cout << "Fabrics: "<< fabrics.size() << std::endl;
 	return 0;
 } 
 
@@ -53,6 +61,17 @@ std::vector<Intersection> World::getIntersections()
 std::vector<Track> World::getTracks()
 {
 	return tracks;
+}
+
+int World::addFabric(Fabric f)
+{
+	return 0;
+}
+
+int World::addFabric(int x, int y, int cin, int cout, std::vector<std::vector<int>> p)
+{
+	Fabric f = Fabric(x,y,cin,cout,p);
+	return addFabric(f);
 }
 
 int World::addStation(Station s)

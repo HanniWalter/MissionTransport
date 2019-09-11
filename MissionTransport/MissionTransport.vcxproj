@@ -70,12 +70,12 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-    <IncludePath>C:\Users\Johannes\source\sdl2_gfx-master\acinclude;C:\Users\Johannes\source;C:\Users\Johannes\source\SDL2-2.0.9\include;$(IncludePath)</IncludePath>
-    <LibraryPath>C:\Users\Johannes\source\sdl2_gfx-master;C:\Users\Johannes\source\SDL2_image-2.0.4\lib\x64;C:\Users\Johannes\source\SDL2-2.0.9\lib\x64;$(LibraryPath)</LibraryPath>
+    <IncludePath>C:\Users\Johannes\source\repos\MissionTransport\SDL_TTF\include;C:\Users\Johannes\source\sdl2_gfx-master\acinclude;C:\Users\Johannes\source;C:\Users\Johannes\source\SDL2-2.0.9\include;$(IncludePath)</IncludePath>
+    <LibraryPath>C:\Users\Johannes\source\repos\MissionTransport\SDL_TTF\lib\x64;C:\Users\Johannes\source\sdl2_gfx-master;C:\Users\Johannes\source\SDL2_image-2.0.4\lib\x64;C:\Users\Johannes\source\SDL2-2.0.9\lib\x64;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <IncludePath>C:\Users\Johannes\source\repos\MissionTransport\SDL2-2.0.9\include;$(IncludePath)</IncludePath>
-    <LibraryPath>C:\Users\Johannes\source\repos\MissionTransport\SDL2-2.0.9\lib\x64;$(LibraryPath)</LibraryPath>
+    <IncludePath>C:\Users\Johannes\source\repos\MissionTransport\SDL_TTF\include;C:\Users\Johannes\source\repos\MissionTransport\SDL2-2.0.9\include;$(IncludePath)</IncludePath>
+    <LibraryPath>C:\Users\Johannes\source\repos\MissionTransport\SDL_TTF\lib\x64;C:\Users\Johannes\source\repos\MissionTransport\SDL2-2.0.9\lib\x64;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -84,10 +84,11 @@
       <SDLCheck>true</SDLCheck>
       <ConformanceMode>true</ConformanceMode>
       <AdditionalIncludeDirectories>C:\Users\Johannes\source\SDL2-2.0.9\include;C:\Users\Johannes\source\SDL2_image-2.0.4\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
     <Link>
       <AdditionalLibraryDirectories>C:\Users\Johannes\source\sdl2_gfx-master\acinclude;C:\Users\Johannes\source\repos\MissionTransport\SDL2-2.0.9\lib\x64;C:\Users\Johannes\source\repos\MissionTransport\SDL2_image-2.0.4\lib\x64;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>SDL2.lib;SDL2main.lib;SDL2_image.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>SDL2.lib;SDL2main.lib;SDL2_ttf.lib;SDL2_image.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <SubSystem>Console</SubSystem>
     </Link>
   </ItemDefinitionGroup>
@@ -98,9 +99,10 @@
       <SDLCheck>true</SDLCheck>
       <ConformanceMode>true</ConformanceMode>
       <AdditionalIncludeDirectories>C:\Users\Johannes\source\SDL2-2.0.9\include;C:\Users\Johannes\source\SDL2_image-2.0.4\include;C:\Users\Johan\source\repos\MissionTransport\SDL2-2.0.9\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
     <Link>
-      <AdditionalDependencies>SDL2.lib;SDL2main.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>SDL2.lib;SDL2main.lib;SDL2_ttf.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <SubSystem>Console</SubSystem>
     </Link>
   </ItemDefinitionGroup>
@@ -133,27 +135,40 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="console.cpp" />
     <ClCompile Include="DateTime.cpp" />
     <ClCompile Include="Display.cpp" />
+    <ClCompile Include="EventHandler.cpp" />
+    <ClCompile Include="Fabric.cpp" />
     <ClCompile Include="GameObject.cpp" />
     <ClCompile Include="Intersection.cpp" />
     <ClCompile Include="Line.cpp" />
     <ClCompile Include="Main.cpp" />
+    <ClCompile Include="production.cpp" />
     <ClCompile Include="SDL2_framerate.c" />
     <ClCompile Include="SDL2_gfxPrimitives.c" />
     <ClCompile Include="SDL2_imageFilter.c" />
     <ClCompile Include="SDL2_rotozoom.c" />
     <ClCompile Include="Station.cpp" />
+    <ClCompile Include="Stock.cpp" />
     <ClCompile Include="Track.cpp" />
+    <ClCompile Include="Transportable.cpp" />
     <ClCompile Include="Util.cpp" />
     <ClCompile Include="Vehicle.cpp" />
     <ClCompile Include="World.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="console.h" />
     <ClInclude Include="DateTime.h" />
     <ClInclude Include="Display.h" />
+    <ClInclude Include="Enums.h" />
+    <ClInclude Include="EventHandler.h" />
+    <ClInclude Include="Fabric.h" />
     <ClInclude Include="GameObject.h" />
     <ClInclude Include="Globals.h" />
+    <ClInclude Include="production.h" />
+    <ClInclude Include="Stock.h" />
+    <ClInclude Include="Transportable.h" />
     <ClInclude Include="Util.h" />
     <ClInclude Include="Intersection.h" />
     <ClInclude Include="Line.h" />

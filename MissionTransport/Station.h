@@ -1,5 +1,6 @@
 #pragma once
 #include "Intersection.h"
+
 class Station :
 	public Intersection
 {

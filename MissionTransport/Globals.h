@@ -1,13 +1,13 @@
 #pragma once
 #include "World.h"
 #include "Display.h"
+#include <vector>
+#include "production.h"
 
-World* GlobalWorld;
 Display* GlobalDisplay;
 
+std::vector<Production> GlobalProduction;
 
-int GSDisplayMode; // 1 = console only 2 = display
 bool GSDisplayLoadet = false;
-bool GSWorldLoadet = false;
 bool GSRunning = false;
 bool GSTicking = false;
