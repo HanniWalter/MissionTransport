@@ -16,7 +16,6 @@ void initGlobalProduktion() {
 
 int programfunction() {
 	//Messy Part
-	//GSDisplayMode = 1;
 	GSTicking = true;
 	GSRunning = true;
 	World w(1);
@@ -131,13 +130,10 @@ void GameLoop() {
 int main(int iHate, char* SDL[]) {
 	std::shared_ptr<Console> console = Console::getInstancePtr();
 	console->activateSeperatedConsole();
-	for (int i = 0; i < 40; i++) {
-		std::string a = "test";
-		a += std::to_string(i);
-		console->print(a);
-	}
 	static std::shared_ptr <Display> display = Display::getInstancePtr();
-	std::optional<World> world = World::getInstance();
+	World::createFormPreset(1);
+	std::shared_ptr<World> world = World::getInstance().value();
+	world->print();
 	GameLoop();
 	
 
@@ -150,7 +146,7 @@ int main(int iHate, char* SDL[]) {
 	f.load(20, Coal);
 	f.update(6);
 	f.update(6);
-	f.update(6);
+	f.update(6);z
 	f.update(6);
 	f.printFabric();
 

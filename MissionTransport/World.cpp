@@ -5,21 +5,28 @@ std::optional<std::shared_ptr<World>> World::instance = {};
 
 World::World()
 {
+
 }
 
-World::World(int Pre)
+void World::create()
 {
-	if (Pre == 1) {
-		dateTime =DateTime(2000, 1, 1, 9, 0, 0, 0);
-		MaxX = 1000;
-		MaxY = 1000;
+	World world = *this;
+	//std::optional<World> optional = world;
+	instance = std::make_shared<World>( world);
+}
 
-		this->addStation(100, 100);
-		this->addStation(300, 100);
-		this->addStation(200, 300);
-		
-		this->addTrack(stations.at(2), { {300,300} }, stations.at(1));
-	}
+
+World::World(int MaxX, int MaxY, DateTime dateTime, int speedMultiplier, std::vector<Station> stations, std::vector<Intersection> intersections, std::vector<Track> tracks, std::vector<Fabric> fabrics)
+{
+	this->MaxX=MaxX;
+	this->MaxY=MaxY;
+	this->dateTime=dateTime;
+	this->speedMultiplier = speedMultiplier;
+	this->stations = stations;
+	this->intersections = intersections;
+	this->tracks = tracks;
+	this->fabrics;
+	create();
 }
 
 World::~World()
@@ -31,14 +38,37 @@ std::optional<std::shared_ptr<World>> World::getInstance()
 	return World::instance;
 }
 
+void World::createFormPreset(int Pre){
 
-int World::worldprint()
+	{
+		if (Pre == 1) {
+			World(100, 100, DateTime(2000, 1, 1, 9, 0, 0, 0), 6000, {}, {}, {}, {});
+
+			std::shared_ptr<World> wptr = getInstance().value();
+			wptr->addStation(100, 100);
+			wptr->addStation(300, 100);
+			wptr->addStation(200, 300);
+
+			wptr->addTrack(wptr->getStations().at(2), { {300,300} }, wptr->getStations().at(1));
+			
+		}
+	}
+
+
+	
+}
+
+
+int World::print()
 {
-	std::cout << MaxX << ";" << MaxY << "         " << dateTime.getDateTime() << std::endl;
-	std::cout << "Stations: "<< stations.size() << std::endl;
-	std::cout << "Intersections: "<< intersections.size() << std::endl;
-	std::cout << "Tracks: "<< tracks.size() << std::endl;
-	std::cout << "Fabrics: "<< fabrics.size() << std::endl;
+	std::shared_ptr<Console> consoleptr = Console::getInstancePtr();
+
+	consoleptr->print(std::to_string(MaxX) + ";" + std::to_string(MaxY) + "         " + dateTime.getDateTime());
+	consoleptr->print("Stations: " + std::to_string(stations.size()));
+	consoleptr->print("Intersections: " + std::to_string(intersections.size()));
+	consoleptr->print("Tracks: " + std::to_string(tracks.size()));
+	consoleptr->print("Fabrics: " + std::to_string(fabrics.size()));
+
 	return 0;
 } 
 

@@ -19,7 +19,7 @@ void Console::consoleInput()
 {
 	std::string  str;
 	std::cin >> str;
-//	if(str !="") this->insert(str);
+	if(str !="") this->insert(str);
 
 }
 

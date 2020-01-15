@@ -13,11 +13,12 @@
 #include <optional>
 
 
-//singleton but creat object at setUp() (not getInstance())
+//singleton but creat object at a setup methode not getInstance()
 class World
 {
 private:
 	static std::optional<std::shared_ptr<World>> instance ;
+
 
 	int MaxX;
 	int MaxY;
@@ -28,16 +29,16 @@ private:
 	std::vector<Intersection> intersections;
 	std::vector<Track> tracks;
 	std::vector<Fabric> fabrics;
-	World();
-public:
+	World();	
+	void create();
+	World(int MaxX, int MaxY, DateTime dateTime, int speedMultiplier, std::vector<Station> stations, std::vector<Intersection> intersections, std::vector<Track> tracks, std::vector<Fabric> fabrics);
 
-	//World(int Pre);
+public:
 	~World();
 	static std::optional<std::shared_ptr<World>> getInstance();
+	static void createFormPreset(int Pre);
 
-	void createFormPreset(int Pre);
-
-	int worldprint();
+	int print();
 	int update(int ticktime);
 
 	std::vector<Station> getStations();
